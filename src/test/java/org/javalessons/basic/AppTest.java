@@ -2,6 +2,9 @@ package org.javalessons.basic;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -9,9 +12,6 @@ import static org.junit.Assert.*;
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
     @Test
     public void shouldAnswerWithTrue()
     {
@@ -23,6 +23,7 @@ public class AppTest
         assertTrue( "Fix the condition!", 1 > 100);
     }
 
+    @Test
     public void shouldCheckConditionals(){
         int seed = 84;
         Integer multiplier = 3;
@@ -36,6 +37,42 @@ public class AppTest
         }
     }
 
+    @Test
+    public void shouldIterateCollection(){
+        List<String> list = new ArrayList<String>(){{
+            add("one");
+            add("two");
+            add("three");
+            add("four");
+            add("five");
+            add("six");
+            add("seven");
+        }};
 
+        for(String s: list){
+            if (s.contains("foo")){
+               assertEquals("foo", s);
+            }
+        }
 
+        fail();
+    }
+
+    @Test
+    public void shouldLetToDepositMoneyToBankAccount(){
+        BankAccount bank = new BankAccount(100);
+
+        int deposit = 50;
+        // deposit money here
+        assertEquals(100 + deposit, bank.getCoins());
+    }
+
+    @Test
+    public void shouldLetToWithdrawMoneyFromBankAccount(){
+        BankAccount bank = new BankAccount(100);
+
+        int moneyToWidthraw = 50;
+        // deposit money here
+        assertEquals(100 + moneyToWidthraw, bank.getCoins());
+    }
 }
