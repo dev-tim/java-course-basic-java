@@ -1,10 +1,13 @@
 package org.javalessons.basic;
 
+import org.hamcrest.collection.IsMapContaining;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.*;
 
 /**
@@ -20,7 +23,7 @@ public class AppTest
 
     @Test
     public void shouldCompare2Numbers(){
-        assertTrue( "Fix the condition!", 1 > 100);
+        assertTrue( "Fix the condition!", 1 < 100);
     }
 
     @Test
@@ -28,12 +31,12 @@ public class AppTest
         int seed = 84;
         Integer multiplier = 3;
 
-        if (seed > 20 || multiplier.toString() == null){
+        if (seed < 20 || multiplier.toString() == null){
             fail();
         } else if (seed * multiplier < 100){
             fail();
         } else {
-            assertEquals(42, multiplier * seed);
+            assertEquals(252, multiplier * seed);
         }
     }
 
@@ -47,11 +50,13 @@ public class AppTest
             add("five");
             add("six");
             add("seven");
+            add("foo");
         }};
 
         for(String s: list){
             if (s.contains("foo")){
                assertEquals("foo", s);
+               return;
             }
         }
 
@@ -63,7 +68,7 @@ public class AppTest
         BankAccount bank = new BankAccount(100);
 
         int deposit = 50;
-        // deposit money here
+        bank.putMoney(deposit);
         assertEquals(100 + deposit, bank.getCoins());
     }
 
@@ -72,7 +77,29 @@ public class AppTest
         BankAccount bank = new BankAccount(100);
 
         int moneyToWidthraw = 50;
-        // deposit money here
-        assertEquals(100 + moneyToWidthraw, bank.getCoins());
+        bank.withdrawMoney(moneyToWidthraw);
+
+        assertEquals(100 - moneyToWidthraw, bank.getCoins());
     }
+
+    @Test
+    public void hashmapCheckIfTwoValues(){
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("Tom.Jefferson@gmail.com","Laptop");
+        hashMap.put("Don.Trump@gmail.com", "Penthause");
+        hashMap.put("Tom.Jefferson@gmail.com","Keyboard");
+        hashMap.put("Tom.Jefferson@gmail.com","Mouse");
+
+        assertThat(hashMap, not(IsMapContaining.hasEntry("Tom.Jefferson@gmail.com", "Laptop")));
+    }
+
+    @Test
+    public void removeValueWithNotExistingKey(){
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("Tom.Jefferson@gmail.com","Laptop");
+        hashMap.put("Don.Trump@gmail.com", "Penthause");
+        hashMap.remove("Tom.Jefferson@gmail.com");
+        assertThat(hashMap, not(IsMapContaining.hasValue("Laptop")));
+    }
+
 }
