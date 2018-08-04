@@ -8,12 +8,17 @@ public class BankAccount {
         this.coins = coins;
     }
 
-    public void putMoney(){
-        // deposit money here
+    public void putMoney(int deposit){
+        this.coins = this.coins+deposit;
+    }
+
+    public void withdrawMoney(int withdraw){
+        this.coins = this.coins-withdraw;
     }
 
 
     public int getCoins() {
         return coins;
     }
+
 }
