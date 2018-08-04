@@ -3,6 +3,7 @@ package org.javalessons.basic;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -74,5 +75,16 @@ public class AppTest
         int moneyToWidthraw = 50;
         // deposit money here
         assertEquals(100 + moneyToWidthraw, bank.getCoins());
+    }
+    @Test
+    public void hashmapPutTwoKey()
+
+    {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Hello", "Hello");
+        map.put("1", "1");
+        assertEquals("Hello", map.get("Hello"));
+        assertEquals("1", map.get("1"));
+        assertFalse(!map.containsKey("1"));
     }
 }
