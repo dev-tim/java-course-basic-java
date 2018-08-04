@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="40bd99f2-5aff-42f5-ae2c-6149195c28d8" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java-lessons-basic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-lessons-basic.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,13 +49,45 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="2143564839">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="2" />
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="2" />
+          <entry key="JAVA" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="926" />
+          <entry key="xml" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="926" />
+          <entry key="XML" value="3" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/javalessons/basic/App.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="88">
               <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
             </state>
           </provider>
@@ -62,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/javalessons/basic/BankAccount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="220">
               <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
               <folding>
                 <element signature="e#118#119#0" expanded="true" />
@@ -74,11 +108,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/org/javalessons/basic/AppTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="104" column="1" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="1" />
+            <state relative-caret-position="1474">
+              <caret line="99" column="19" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/org/javalessons/basic/GoogleSearchTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -89,13 +135,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+            <state relative-caret-position="465">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -104,8 +157,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/org/javalessons/basic/BankAccount.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/test/java/org/javalessons/basic/AppTest.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/org/javalessons/basic/GoogleSearchTest.java" />
       </list>
     </option>
   </component>
@@ -116,20 +170,21 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
     <option name="height" value="1050" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -227,10 +282,11 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533239391961" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1533396845766" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -248,37 +304,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AppTest.hashmapCheckIfTwoValues">
-    <configuration name="AppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-lessons-basic" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.javalessons.basic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.javalessons.basic" />
-      <option name="MAIN_CLASS_NAME" value="org.javalessons.basic.AppTest" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppTest.hashmapCheck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-lessons-basic" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.javalessons.basic.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.javalessons.basic" />
-      <option name="MAIN_CLASS_NAME" value="org.javalessons.basic.AppTest" />
-      <option name="METHOD_NAME" value="hashmapCheck" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.GoogleSearchTest.testAmazonLampsPricesBelowTenEuro">
     <configuration name="AppTest.hashmapCheckIfTwoValues" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lessons-basic" />
       <extension name="coverage">
@@ -295,7 +321,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.removeValueWithNotExistingKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoogleSearchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lessons-basic" />
       <extension name="coverage">
         <pattern>
@@ -304,14 +330,28 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.javalessons.basic" />
-      <option name="MAIN_CLASS_NAME" value="org.javalessons.basic.AppTest" />
-      <option name="METHOD_NAME" value="removeValueWithNotExistingKey" />
+      <option name="MAIN_CLASS_NAME" value="org.javalessons.basic.GoogleSearchTest" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lessons-basic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.javalessons.basic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.javalessons.basic" />
+      <option name="MAIN_CLASS_NAME" value="org.javalessons.basic.GoogleSearchTest" />
+      <option name="METHOD_NAME" value="testAmazonLampsPricesBelowTenBucks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.shouldLetToWithdrawMoneyFromBankAccount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenEuro" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-lessons-basic" />
       <extension name="coverage">
         <pattern>
@@ -320,27 +360,43 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.javalessons.basic" />
-      <option name="MAIN_CLASS_NAME" value="org.javalessons.basic.AppTest" />
-      <option name="METHOD_NAME" value="shouldLetToWithdrawMoneyFromBankAccount" />
+      <option name="MAIN_CLASS_NAME" value="org.javalessons.basic.GoogleSearchTest" />
+      <option name="METHOD_NAME" value="testAmazonLampsPricesBelowTenEuro" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GoogleSearchTest.testGoogleSearchWorks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-lessons-basic" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.javalessons.basic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.javalessons.basic" />
+      <option name="MAIN_CLASS_NAME" value="org.javalessons.basic.GoogleSearchTest" />
+      <option name="METHOD_NAME" value="testGoogleSearchWorks" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AppTest" />
-      <item itemvalue="JUnit.AppTest.shouldLetToWithdrawMoneyFromBankAccount" />
-      <item itemvalue="JUnit.AppTest.hashmapCheck" />
-      <item itemvalue="JUnit.AppTest.removeValueWithNotExistingKey" />
       <item itemvalue="JUnit.AppTest.hashmapCheckIfTwoValues" />
+      <item itemvalue="JUnit.GoogleSearchTest.testGoogleSearchWorks" />
+      <item itemvalue="JUnit.GoogleSearchTest" />
+      <item itemvalue="JUnit.GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" />
+      <item itemvalue="JUnit.GoogleSearchTest.testAmazonLampsPricesBelowTenEuro" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GoogleSearchTest.testAmazonLampsPricesBelowTenEuro" />
+        <item itemvalue="JUnit.GoogleSearchTest" />
+        <item itemvalue="JUnit.GoogleSearchTest.testGoogleSearchWorks" />
+        <item itemvalue="JUnit.GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" />
         <item itemvalue="JUnit.AppTest.hashmapCheckIfTwoValues" />
-        <item itemvalue="JUnit.AppTest.removeValueWithNotExistingKey" />
-        <item itemvalue="JUnit.AppTest.hashmapCheck" />
-        <item itemvalue="JUnit.AppTest" />
-        <item itemvalue="JUnit.AppTest.shouldLetToWithdrawMoneyFromBankAccount" />
       </list>
     </recent_temporary>
   </component>
@@ -358,35 +414,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AppTest_removeValueWithNotExistingKey - 2018.08.02 at 00h 28m 17s.xml">
-      <configuration name="AppTest.removeValueWithNotExistingKey" configurationId="JUnit" />
+    <history-entry file="GoogleSearchTest_testAmazonLampsPricesBelowTenBucks - 2018.08.04 at 16h 32m 41s.xml">
+      <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppTest_removeValueWithNotExistingKey - 2018.08.02 at 00h 28m 40s.xml">
-      <configuration name="AppTest.removeValueWithNotExistingKey" configurationId="JUnit" />
+    <history-entry file="GoogleSearchTest_testAmazonLampsPricesBelowTenBucks - 2018.08.04 at 16h 40m 49s.xml">
+      <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppTest_removeValueWithNotExistingKey - 2018.08.02 at 00h 31m 24s.xml">
-      <configuration name="AppTest.removeValueWithNotExistingKey" configurationId="JUnit" />
+    <history-entry file="GoogleSearchTest_testAmazonLampsPricesBelowTenBucks - 2018.08.04 at 17h 09m 51s.xml">
+      <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppTest_removeValueWithNotExistingKey - 2018.08.02 at 00h 31m 47s.xml">
-      <configuration name="AppTest.removeValueWithNotExistingKey" configurationId="JUnit" />
+    <history-entry file="GoogleSearchTest_testAmazonLampsPricesBelowTenBucks - 2018.08.04 at 17h 13m 46s.xml">
+      <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppTest_removeValueWithNotExistingKey - 2018.08.02 at 00h 33m 50s.xml">
-      <configuration name="AppTest.removeValueWithNotExistingKey" configurationId="JUnit" />
+    <history-entry file="GoogleSearchTest_testAmazonLampsPricesBelowTenBucks - 2018.08.04 at 17h 15m 22s.xml">
+      <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppTest_removeValueWithNotExistingKey - 2018.08.02 at 00h 34m 33s.xml">
-      <configuration name="AppTest.removeValueWithNotExistingKey" configurationId="JUnit" />
+    <history-entry file="GoogleSearchTest_testAmazonLampsPricesBelowTenBucks - 2018.08.04 at 17h 16m 05s.xml">
+      <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppTest_removeValueWithNotExistingKey - 2018.08.02 at 00h 35m 04s.xml">
-      <configuration name="AppTest.removeValueWithNotExistingKey" configurationId="JUnit" />
+    <history-entry file="GoogleSearchTest_testAmazonLampsPricesBelowTenBucks - 2018.08.04 at 17h 18m 24s.xml">
+      <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppTest_removeValueWithNotExistingKey - 2018.08.02 at 00h 39m 14s.xml">
-      <configuration name="AppTest.removeValueWithNotExistingKey" configurationId="JUnit" />
+    <history-entry file="GoogleSearchTest_testAmazonLampsPricesBelowTenBucks - 2018.08.04 at 17h 23m 10s.xml">
+      <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppTest_removeValueWithNotExistingKey - 2018.08.02 at 00h 39m 56s.xml">
-      <configuration name="AppTest.removeValueWithNotExistingKey" configurationId="JUnit" />
+    <history-entry file="GoogleSearchTest_testAmazonLampsPricesBelowTenBucks - 2018.08.04 at 17h 24m 50s.xml">
+      <configuration name="GoogleSearchTest.testAmazonLampsPricesBelowTenBucks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AppTest_hashmapCheckIfTwoValues - 2018.08.02 at 21h 16m 39s.xml">
-      <configuration name="AppTest.hashmapCheckIfTwoValues" configurationId="JUnit" />
+    <history-entry file="GoogleSearchTest_testGoogleSearchWorks - 2018.08.04 at 17h 31m 07s.xml">
+      <configuration name="GoogleSearchTest.testGoogleSearchWorks" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -399,9 +455,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="6" />
+    <frame x="-8" y="-8" width="1551" height="840" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25725028" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18041582" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -410,15 +467,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6525242" weight="0.30385488" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49731472" weight="0.39909297" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.65167785" visible="true" weight="0.3022599" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4966443" weight="0.398017" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49946293" weight="0.32993197" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.49677765" visible="true" weight="0.32993197" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50322235" side_tool="true" visible="true" weight="0.32993197" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49597314" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5033557" side_tool="true" weight="0.398017" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49838883" weight="0.32993197" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49946293" weight="0.32993197" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49946293" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -461,14 +518,14 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/org/javalessons/basic/App.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
+        <state relative-caret-position="88">
           <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/javalessons/basic/BankAccount.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="220">
           <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding>
             <element signature="e#118#119#0" expanded="true" />
@@ -479,17 +536,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javalessons/basic/AppTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="17" column="30" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+        <state relative-caret-position="1474">
+          <caret line="99" column="19" selection-start-line="99" selection-start-column="19" selection-end-line="99" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/org/javalessons/basic/AppTest.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/seleniumhq/selenium/selenium-api/3.14.0/selenium-api-3.14.0.jar!/org/openqa/selenium/By.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="104" column="1" selection-start-line="104" selection-start-column="1" selection-end-line="104" selection-end-column="1" />
+        <state relative-caret-position="308">
+          <caret line="15" column="70" selection-start-line="15" selection-start-column="70" selection-end-line="15" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/runners/model/FrameworkMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/org/javalessons/basic/GoogleSearchTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="48" column="10" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
