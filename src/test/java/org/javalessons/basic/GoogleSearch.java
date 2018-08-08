@@ -41,6 +41,7 @@ public class GoogleSearch {
 
     }
 
+/*
 
         @Test
         public void testGoogleSearchWorks() {
@@ -78,6 +79,7 @@ public class GoogleSearch {
 
             finalize();
         }
+*/
 
     @Test
     public void testAmazonLinks() throws ParseException {
@@ -115,20 +117,18 @@ public class GoogleSearch {
         for (WebElement resElem : booksResultItems) {
             WebElement priceElement = resElem.findElement(By.cssSelector(".s-price"));
             WebElement nameElement = resElem.findElement(By.cssSelector(".s-access-title"));
+            WebElement linkElement = resElem.findElement(By.tagName("a"));
             String priceText = priceElement.getText();
             String nameText = nameElement.getText();
-
-           /* if (priceText.contains("IS")) {
-
-                continue;
-
-            }*/
+            String linkText = linkElement.getAttribute("href");
 
             String priceLowest = priceText.substring(4);
             Number number = format.parse(priceLowest);
             double currentPrice = number.doubleValue();
             if (currentPrice < PRICE_LIMIT) {
                 priceNameList.add(nameText);
+                priceNameList.add(priceText);
+                priceNameList.add(linkText);
             }
 
         }
