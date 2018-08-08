@@ -16,6 +16,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -31,6 +32,7 @@ public class GoogleSearch {
 
     WebDriver driver;
     WebElement element;
+    WebElement element2;
 
     @Before
     public void initialize() {
@@ -85,14 +87,25 @@ public class GoogleSearch {
         driver = new ChromeDriver();
         driver.get(HTTPS_WWW_AMAZON_DE);
 
-        element = driver.findElement(By.id("twotabsearchtextbox"));
-        element.sendKeys(QUERY_AMAZON);
-        element.submit();
 
-        List<WebElement> booksResultsItems = driver.findElements(By.cssSelector(".s-result-item"));
-        List<String> cheapBooksList = findCheapBooks(booksResultsItems);
-        printCheapBooksList(cheapBooksList);
-        Assert.assertTrue(cheapBooksList.size() > 0);
+
+        for(int j = 1 ; j < 4 ; j++) {
+            if (j==1){
+                element = driver.findElement(By.id("twotabsearchtextbox"));
+                element.sendKeys(QUERY_AMAZON);
+                element.submit();
+            }
+            if (j > 1) {// we don't need to navigate to the first page
+
+                driver.findElement(By.id("pagnNextString")).click(); // navigate to page number j
+
+            }
+            List<WebElement> booksResultsItems = driver.findElements(By.cssSelector(".s-result-item"));
+            List<String> cheapBooksList = findCheapBooks(booksResultsItems);
+            printCheapBooksList(cheapBooksList);
+            Assert.assertTrue(cheapBooksList.size() > 0);
+        }
+
 
     }
 
