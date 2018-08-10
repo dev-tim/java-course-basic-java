@@ -1,8 +1,8 @@
-/local.properties
-/.idea/workspace.xml
-.DS_Store
-/build
 .idea/
-*iml
+target/
+/bin/
+
 *.iml
-*/build
+out/
+git-init.jar
+git-init-jar-with-dependencies.jar

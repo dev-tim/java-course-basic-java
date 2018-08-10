@@ -1,0 +1,90 @@
+package org.javalessons.basic;
+
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.List;
+import java.util.Locale;
+import java.util.NoSuchElementException;
+import java.util.Set;
+
+public class AmazonSearchTest {
+    public static final String HTTPS_WWW_AMAZON_DE = "https://www.amazon.de/";
+    public static final int PRICE_THRESHOLD = 10;
+    public static final String SEARCH_TERM = "tischlampe";
+    public static final NumberFormat NUMBER_FORMAT = NumberFormat.getInstance(Locale.GERMANY);
+    WebDriver driver;
+
+    @Before
+    public void executeBeforeEach() {
+        String chromeDriverPath = "C:\\Users\\Nikolay\\chromedriver.exe";
+        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+        driver = new ChromeDriver();
+    }
+
+    @After
+    public void executeAfterEach() {
+        driver.quit();
+    }
+
+
+    @Test
+    public void testAmazonLampsPricesBelowTenEuro() throws ParseException, InterruptedException {
+        driver.get(HTTPS_WWW_AMAZON_DE);
+        WebElement element = driver.findElement(By.id("twotabsearchtextbox"));
+        element.sendKeys(SEARCH_TERM);
+        element.submit();
+
+        Multimap<String, String> cheapLamps = ArrayListMultimap.create();
+
+        for (int i = 0; i < 5; i++) {
+
+            List<WebElement> lampsResultItemElements = driver.findElements(By.cssSelector(".s-result-item"));
+
+            for (WebElement item : lampsResultItemElements) {
+                try {
+                    WebElement priceElement = item.findElement(By.cssSelector(".s-price"));
+                    WebElement titleElement = item.findElement(By.cssSelector(".s-access-title"));
+                    WebElement linkElement = item.findElement(By.tagName("a"));
+                    String titleText = titleElement.getText();
+                    String link = linkElement.getAttribute("href");
+                    String priceText = priceElement.getText();
+
+                    String price = priceText.substring(4);
+                    Number number = NUMBER_FORMAT.parse(price);
+                    Double dPrice = number.doubleValue();
+
+                    if (dPrice <= PRICE_THRESHOLD) {
+                        cheapLamps.put(titleText, priceText);
+                        cheapLamps.put(titleText, link);
+                    }
+
+                } catch (NoSuchElementException ignored) {
+                    ignored.printStackTrace();
+                } finally {
+                    continue;
+                }
+            }
+            driver.findElement(By.id("pagnNextString")).click();
+        }
+
+        Set<String> keys = cheapLamps.keySet();
+
+        for (String key : keys) {
+            System.out.println("Title : " + key);
+            System.out.println("Price and link : " + cheapLamps.get(key));
+        }
+
+    }
+
+
+}
