@@ -9,6 +9,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import java.text.NumberFormat;
@@ -16,6 +20,7 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -33,7 +38,8 @@ public class GoogleSearch {
     WebDriver driver;
     WebElement element;
     WebElement element2;
-
+    private TimeUnit SECONDS;
+    WebDriverWait wait;
     @Before
     public void initialize() {
         String chromeDriverPath = "C:\\Users\\Gainulina\\chromedriver.exe";
@@ -98,40 +104,45 @@ public class GoogleSearch {
                 element.submit();
             }
             if (j > 1) {// we don't need to navigate to the first page
-
                 driver.findElement(By.id("pagnNextString")).click(); // navigate to page number j
-
             }
+
             List<WebElement> booksResultsItems = driver.findElements(By.cssSelector(".s-result-item"));
             List<String> cheapBooksList = findCheapBooks(booksResultsItems);
             printCheapBooksList(cheapBooksList);
             Assert.assertTrue(cheapBooksList.size() > 0);
         }
-
-
     }
 
     private List<String> findCheapBooks(List<WebElement> booksResultItems) throws ParseException {
 
-        List<String> priceNameList = new ArrayList<>();
-        for (WebElement resElem : booksResultItems) {
-            WebElement priceElement = resElem.findElement(By.cssSelector(".s-price"));
-            WebElement nameElement = resElem.findElement(By.cssSelector(".s-access-title"));
-            WebElement linkElement = resElem.findElement(By.tagName("a"));
-            String priceText = priceElement.getText();
-            String nameText = nameElement.getText();
-            String linkText = linkElement.getAttribute("href");
+            List<String> priceNameList = new ArrayList<>();
+            for (WebElement resElem : booksResultItems) {
+                try {
+                WebElement priceElement = resElem.findElement(By.cssSelector(".s-price"));
+                WebElement nameElement = resElem.findElement(By.cssSelector(".s-access-title"));
+                WebElement linkElement = resElem.findElement(By.tagName("a"));
+                String priceText = priceElement.getText();
+                String nameText = nameElement.getText();
+                String linkText = linkElement.getAttribute("href");
 
-            String priceLowest = priceText.substring(4);
-            Number number = format.parse(priceLowest);
-            double currentPrice = number.doubleValue();
-            if (currentPrice < PRICE_LIMIT) {
-                priceNameList.add(nameText);
-                priceNameList.add(priceText);
-                priceNameList.add(linkText);
+
+                String priceLowest = priceText.substring(4);
+                Number number = format.parse(priceLowest);
+                double currentPrice = number.doubleValue();
+
+                if (currentPrice < PRICE_LIMIT) {
+                    priceNameList.add(nameText);
+                    priceNameList.add(priceText);
+                    priceNameList.add(linkText);
+                }
+                }catch (NoSuchElementException ignored){
+                   ignored.printStackTrace();
+                }finally {
+                    continue;
+                }
             }
 
-        }
 
         return priceNameList;
     }
@@ -140,14 +151,12 @@ public class GoogleSearch {
         for (String nameElem : cheapBooksList) {
             System.out.println(nameElem);
         }
-
     }
 
     @After
     public void finalize() {
         driver.quit();
     }
-
 }
 
 
