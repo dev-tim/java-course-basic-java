@@ -44,12 +44,16 @@ public class AmazonSearchTest {
         element.sendKeys(SEARCH_TERM);
         element.submit();
 
+        Multimap<String, String> cheapLamps = findCheapLamps();
+
+        printCheapLamps(cheapLamps);
+    }
+
+    private Multimap<String, String> findCheapLamps() {
         Multimap<String, String> cheapLamps = ArrayListMultimap.create();
 
         for (int i = 0; i < 5; i++) {
-
             List<WebElement> lampsResultItemElements = driver.findElements(By.cssSelector(".s-result-item"));
-
             for (WebElement item : lampsResultItemElements) {
                 try {
                     WebElement priceElement = item.findElement(By.cssSelector(".s-price"));
@@ -68,7 +72,7 @@ public class AmazonSearchTest {
                         cheapLamps.put(titleText, link);
                     }
 
-                } catch (NoSuchElementException ignored) {
+                } catch (NoSuchElementException | ParseException ignored) {
                     ignored.printStackTrace();
                 } finally {
                     continue;
@@ -76,15 +80,16 @@ public class AmazonSearchTest {
             }
             driver.findElement(By.id("pagnNextString")).click();
         }
+        return cheapLamps;
+    }
 
+    private void printCheapLamps(Multimap<String, String> cheapLamps) {
         Set<String> keys = cheapLamps.keySet();
-
         for (String key : keys) {
             System.out.println("Title : " + key);
             System.out.println("Price and link : " + cheapLamps.get(key));
         }
 
     }
-
 
 }
