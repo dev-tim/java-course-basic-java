@@ -4,5 +4,9 @@ target/
 
 *.iml
 out/
+
+pom.xml
+README.md
+
 git-init.jar
 git-init-jar-with-dependencies.jar
