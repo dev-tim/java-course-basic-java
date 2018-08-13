@@ -1,10 +1,15 @@
+/*
+Boilerplate code = repeated code parts
+
+pageobject
+
+testingframework
+ */
+
 package org.javalessons.basic;
 
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -34,9 +39,11 @@ public class GoogleSearch {
     public static final String HTTPS_WWW_GOOGLE_COM = "https://www.google.com/";
     public static final String QUERY_TELRAN = "telran berlin";
     public static final String TEL_RAN_DE = "tel-ran.de";
+    public static final String HTTPS_SCHOOL_SAMPLES = "https://school-samples-qa-modal.azurewebsites.net/";
 
     WebDriver driver;
     WebElement element;
+    WebElement element1;
     WebElement element2;
     private TimeUnit SECONDS;
     WebDriverWait wait;
@@ -47,8 +54,8 @@ public class GoogleSearch {
 
     }
 
-/*
 
+    @Ignore
         @Test
         public void testGoogleSearchWorks() {
             initialize();
@@ -56,7 +63,7 @@ public class GoogleSearch {
             driver = new ChromeDriver();
             driver.get(HTTPS_WWW_GOOGLE_COM);
 
-            WebElement element = driver.findElement(By.name("q"));
+            element = driver.findElement(By.name("q"));
             element.sendKeys(QUERY_TELRAN);
             element.submit();
 
@@ -67,6 +74,7 @@ public class GoogleSearch {
 
             }
 
+            @Ignore
         @Test
         public void testGoogleSearchLinks() {
             initialize();
@@ -85,8 +93,8 @@ public class GoogleSearch {
 
             finalize();
         }
-*/
 
+@Ignore
     @Test
     public void testAmazonLinks() throws ParseException {
 
@@ -97,14 +105,14 @@ public class GoogleSearch {
 
 
 
-        for(int j = 1 ; j < 4 ; j++) {
-            if (j==1){
+        for(int i = 1 ; i < 4 ; i++) {
+
                 element = driver.findElement(By.id("twotabsearchtextbox"));
                 element.sendKeys(QUERY_AMAZON);
                 element.submit();
-            }
-            if (j > 1) {// we don't need to navigate to the first page
-                driver.findElement(By.id("pagnNextString")).click(); // navigate to page number j
+
+            if (i > 1) {
+                driver.findElement(By.id("pagnNextString")).click();
             }
 
             List<WebElement> booksResultsItems = driver.findElements(By.cssSelector(".s-result-item"));
@@ -152,6 +160,22 @@ public class GoogleSearch {
             System.out.println(nameElem);
         }
     }
+
+    @Test
+
+    public void schoolSamplesWaitTest (){
+        initialize();
+        driver = new ChromeDriver();
+        driver.get(HTTPS_SCHOOL_SAMPLES);
+        wait = new WebDriverWait(driver, 15);
+
+        element = driver.findElement(By.id("open-modal-button"));
+        element.click();
+        element1= wait.until(ExpectedConditions.presenceOfElementLocated(By.id("myModalLabel")));
+
+        Assert.assertTrue(element1.isEnabled());
+    }
+
 
     @After
     public void finalize() {
