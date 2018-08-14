@@ -1,6 +1,8 @@
 package org.javalessons.basic;
 
 
+import org.javalessons.basic.pageobject.MainPage;
+import org.javalessons.basic.pageobject.SearchResultsPage;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,9 +11,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -22,10 +21,33 @@ import java.util.List;
 import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class GoogleSearch {
+
+    /**
+     * Elements are present on the page
+     * Header:
+     *  - header exists
+     *  - type letter in header should show autosuggestion box
+     *  - click on auto suggestion triggers search
+     * Catalog:
+     *  - returned items page
+     *  - should have promo block
+     *  - should contain navigation pane
+     *  - should not allow to go back on the first page
+     *  Catalog filters:
+     *  - a
+     *  - b
+     *  - c
+     *
+     *  Catalog item
+     *    - Item has image, title, price
+     *    - click on item, title price should page page
+     *
+     *
+     *
+     */
+
 
     public static final String HTTPS_WWW_AMAZON_DE = "https://www.amazon.de/";
     public static final String QUERY_AMAZON = "buecher";
@@ -40,52 +62,46 @@ public class GoogleSearch {
     WebElement element2;
     private TimeUnit SECONDS;
     WebDriverWait wait;
+
     @Before
     public void initialize() {
-        String chromeDriverPath = "C:\\Users\\Gainulina\\chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+    }
+
+    @Test
+    public void testGoogleSearchWorks() {
+        initialize();
+
+        driver = new ChromeDriver();
+        driver.get(HTTPS_WWW_GOOGLE_COM);
+
+        WebElement element = driver.findElement(By.name("q"));
+        element.sendKeys(QUERY_TELRAN);
+        element.submit();
+
+        Assert.assertTrue(driver.getCurrentUrl().startsWith(HTTPS_WWW_GOOGLE_COM + "search?"));
+
+        finalize();
 
     }
 
-/*
+    @Test
+    public void testGoogleSearchLinks() {
+        initialize();
 
-        @Test
-        public void testGoogleSearchWorks() {
-            initialize();
+        driver = new ChromeDriver();
+        driver.get(HTTPS_WWW_GOOGLE_COM);
 
-            driver = new ChromeDriver();
-            driver.get(HTTPS_WWW_GOOGLE_COM);
+        element = driver.findElement(By.name("q"));
+        element.sendKeys(QUERY_TELRAN);
+        element.submit();
 
-            WebElement element = driver.findElement(By.name("q"));
-            element.sendKeys(QUERY_TELRAN);
-            element.submit();
+        List<WebElement> urls = driver.findElements(By.className("iUh30"));
 
+        boolean foundUrl = urls.stream().anyMatch(e -> e.getText().contains(TEL_RAN_DE));
+        Assert.assertTrue(foundUrl);
 
-            Assert.assertTrue(driver.getCurrentUrl().startsWith(HTTPS_WWW_GOOGLE_COM+"search?"));
-
-           finalize();
-
-            }
-
-        @Test
-        public void testGoogleSearchLinks() {
-            initialize();
-
-            driver = new ChromeDriver();
-            driver.get(HTTPS_WWW_GOOGLE_COM);
-
-            element = driver.findElement(By.name("q"));
-            element.sendKeys(QUERY_TELRAN);
-            element.submit();
-
-            List<WebElement> urls = driver.findElements(By.className("iUh30"));
-
-            boolean foundUrl = urls.stream().anyMatch(e-> e.getText().contains(TEL_RAN_DE));
-            Assert.assertTrue(foundUrl);
-
-            finalize();
-        }
-*/
+        finalize();
+    }
 
     @Test
     public void testAmazonLinks() throws ParseException {
@@ -95,19 +111,17 @@ public class GoogleSearch {
         driver = new ChromeDriver();
         driver.get(HTTPS_WWW_AMAZON_DE);
 
+        element = driver.findElement(By.id("twotabsearchtextbox"));
+        element.sendKeys(QUERY_AMAZON);
+        element.submit();
 
 
-        for(int j = 1 ; j < 4 ; j++) {
-            if (j==1){
-                element = driver.findElement(By.id("twotabsearchtextbox"));
-                element.sendKeys(QUERY_AMAZON);
-                element.submit();
-            }
-            if (j > 1) {// we don't need to navigate to the first page
-                driver.findElement(By.id("pagnNextString")).click(); // navigate to page number j
-            }
+        for (int i = 1; i < 4; i++) {
+
+            driver.findElement(By.id("pagnNextString")).click(); // navigate to page number i
 
             List<WebElement> booksResultsItems = driver.findElements(By.cssSelector(".s-result-item"));
+
             List<String> cheapBooksList = findCheapBooks(booksResultsItems);
             printCheapBooksList(cheapBooksList);
             Assert.assertTrue(cheapBooksList.size() > 0);
@@ -116,9 +130,9 @@ public class GoogleSearch {
 
     private List<String> findCheapBooks(List<WebElement> booksResultItems) throws ParseException {
 
-            List<String> priceNameList = new ArrayList<>();
-            for (WebElement resElem : booksResultItems) {
-                try {
+        List<String> priceNameList = new ArrayList<>();
+        for (WebElement resElem : booksResultItems) {
+            try {
                 WebElement priceElement = resElem.findElement(By.cssSelector(".s-price"));
                 WebElement nameElement = resElem.findElement(By.cssSelector(".s-access-title"));
                 WebElement linkElement = resElem.findElement(By.tagName("a"));
@@ -136,12 +150,12 @@ public class GoogleSearch {
                     priceNameList.add(priceText);
                     priceNameList.add(linkText);
                 }
-                }catch (NoSuchElementException ignored){
-                   ignored.printStackTrace();
-                }finally {
-                    continue;
-                }
+            } catch (NoSuchElementException ignored) {
+                ignored.printStackTrace();
+            } finally {
+                continue;
             }
+        }
 
 
         return priceNameList;
