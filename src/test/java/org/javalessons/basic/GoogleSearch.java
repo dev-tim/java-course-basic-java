@@ -18,6 +18,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.pageObjects.MainPage;
+import org.pageObjects.SearchResultsPage;
 
 
 import java.text.NumberFormat;
@@ -53,6 +55,7 @@ public class GoogleSearch {
         System.setProperty("webdriver.chrome.driver", chromeDriverPath);
 
     }
+
 
 
     @Ignore
@@ -161,6 +164,7 @@ public class GoogleSearch {
         }
     }
 
+    @Ignore
     @Test
 
     public void schoolSamplesWaitTest (){
