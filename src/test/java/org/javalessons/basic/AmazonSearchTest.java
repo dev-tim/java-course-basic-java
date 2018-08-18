@@ -36,7 +36,6 @@ public class AmazonSearchTest {
         driver.quit();
     }
 
-
     @Test
     public void testAmazonLampsPricesBelowTenEuro() throws ParseException, InterruptedException {
         driver.get(HTTPS_WWW_AMAZON_DE);
