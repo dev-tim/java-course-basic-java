@@ -93,5 +93,12 @@ public class AppTest
         }
 
     }
-}
+    @Test
+    public void testingHashMap() throws Throwable{
+        HashMap<String, String> map = new HashMap<>();
+        map.put("1", "Bob");
+        map.put("2", "Bob");
+        assertFalse(!map.containsKey("1"));
+    }
 
+}
