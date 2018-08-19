@@ -10,6 +10,9 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static org.javalessons.basic.Constants.PRICE_THRESHOLD;
+import static org.javalessons.basic.Constants.SEARCH_TERM;
+
 public class AmazonSearchPageObjectTest {
 
     private WebDriver driver;
@@ -31,12 +34,12 @@ public class AmazonSearchPageObjectTest {
         MainPage mainpage = new MainPage(driver);
         mainpage.go2Page();
         mainpage.init();
-        SearchResultsPage searchResultsPage = mainpage.performSearchWithEnterHit("tischlampe");
+        SearchResultsPage searchResultsPage = mainpage.performSearchWithEnterHit(SEARCH_TERM);
         Multimap<String, String> cheapItems = searchResultsPage.createContainerOfCheapItems();
 
         for (int i = 0; i < 5; i++) {
             searchResultsPage.init();
-            searchResultsPage.collectCheapIteamsBelowGivenAmountEur(10);
+            searchResultsPage.collectCheapIteamsBelowGivenAmountEur(PRICE_THRESHOLD);
             searchResultsPage.nextPage();
         }
 

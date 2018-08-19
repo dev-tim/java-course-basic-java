@@ -10,9 +10,12 @@ public interface Constants {
     public static final String $ID_NEXT_PAGE = "pagnNextString";
     public static final NumberFormat NUMBER_FORMAT = NumberFormat.getInstance(Locale.GERMANY);
     public static final String $ID_SEARCH_INPUT = "twotabsearchtextbox";
-//    public static final int PRICE_THRESHOLD = 10;
-//    public static final String $CSS_PRICE = ".s-price";
-//    public static final String $CSS_TITLE = ".s-access-title";
-//    public static final String $TAG_NAME_LINK = "a";
+    public static final String SEARCH_TERM = "tischlampe";
+    public static final int PRICE_THRESHOLD = 10;
+    public static final String $CSS_PRICE = ".s-price";
+    public static final String $CSS_TITLE = ".s-access-title";
+    public static final String $TAG_NAME_LINK = "a";
+    public static final String LINK = "href";
+
 
 }

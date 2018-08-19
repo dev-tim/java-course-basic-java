@@ -17,10 +17,11 @@ import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
+import static org.javalessons.basic.Constants.BASE_URL;
+import static org.javalessons.basic.Constants.PRICE_THRESHOLD;
+import static org.javalessons.basic.Constants.SEARCH_TERM;
+
 public class AmazonSearchTest {
-    public static final String HTTPS_WWW_AMAZON_DE = "https://www.amazon.de/";
-    public static final int PRICE_THRESHOLD = 10;
-    public static final String SEARCH_TERM = "tischlampe";
     public static final NumberFormat NUMBER_FORMAT = NumberFormat.getInstance(Locale.GERMANY);
     WebDriver driver;
 
@@ -38,7 +39,7 @@ public class AmazonSearchTest {
 
     @Test
     public void testAmazonLampsPricesBelowTenEuro() throws ParseException, InterruptedException {
-        driver.get(HTTPS_WWW_AMAZON_DE);
+        driver.get(BASE_URL);
         WebElement element = driver.findElement(By.id("twotabsearchtextbox"));
         element.sendKeys(SEARCH_TERM);
         element.submit();
