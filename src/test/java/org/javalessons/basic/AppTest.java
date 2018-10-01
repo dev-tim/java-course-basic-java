@@ -93,5 +93,16 @@ public class AppTest
         }
 
     }
+    @Test
+    public void hashmapPutTwoKey()
+
+    {
+        HashMap<String, String> map = new HashMap<>();
+        map.put("Hello", "Hello");
+        map.put("1", "1");
+        assertEquals("Hello", map.get("Hello"));
+        assertEquals("1", map.get("1"));
+        assertFalse(!map.containsKey("1"));
+    }
 }
 
